@@ -1,7 +1,14 @@
 import os
 import discord
 import csv
-import random
+
+phrases = []
+with open("insults.csv") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        phrases.append(row[1])
+    
+
 
 client = discord.Client()
 @client.event
@@ -21,8 +28,9 @@ async def on_message(message):
 @client.event
 async def on_message(message):
     if message.content.startswith("$server"):
-      await message.channel.send("https://discord.gg/f38GdJEMKu") 
+      await message.channel.send("https://discord.gg/sAqQbw6ksX") 
       print(message.content)
+
 my_secret = os.environ['TOKEN']
 client.run(my_secret)
 
